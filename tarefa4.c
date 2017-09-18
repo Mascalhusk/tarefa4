@@ -66,8 +66,6 @@ void decomposicaoLU(double **M, int dim)
     		L[i] = malloc((dim)*sizeof(double));	
        		L[i][0] = M[i][0];
     	}
-    	//até aqui, L está correta!
-    
     	i=0;
     	for(j=0;j<dim;j++)
     	{   
@@ -102,13 +100,13 @@ void decomposicaoLU(double **M, int dim)
 	imprime(U, dim);
 }
 
-int main()
+int main(int argc, char *argv[])
 {	
 	int i, j, dim;
 	double **M,a;
 	FILE *leitura;
 
-	leitura = fopen("matriz.dat","r");
+	leitura = fopen(argv[1],"r");
 	i = fscanf(leitura, "%d", &dim);
 	M = malloc(dim*sizeof(double *));
         
