@@ -3,7 +3,11 @@
 
 void ler(double **M, int dim, FILE*leitura)
 {	int i, j;
+<<<<<<< HEAD
     double a;	 
+=======
+        double a;	 
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
 
 	for (i=0; i<dim; i++) 
 	{
@@ -55,14 +59,22 @@ void escalonamento(double **M, int dim)
 
 void decomposicaoLU(double **M, int dim)
 {	double **L, **U;
+<<<<<<< HEAD
     	int i,j,k, numop;
     	float soma1, soma2;
     	
+=======
+    	int i,j,k;
+    	float soma1, soma2;
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
     
      	U = malloc( dim*sizeof(double*));
      	L = malloc( dim*sizeof(double*));
      
+<<<<<<< HEAD
      	numop=0;
+=======
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
     	for(i=0;i<dim;i++)
     	{	
     		L[i] = malloc((dim)*sizeof(double));	
@@ -77,27 +89,43 @@ void decomposicaoLU(double **M, int dim)
     	  	 	i++;
     		}
         	U[0][j] = M[0][j]/L[0][0];
+<<<<<<< HEAD
         	numop++;
         } 
     
    	soma1=0; soma2=0; 
+=======
+        } 
+    
+   	soma1=0; soma2=0;
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
     	for(i=1;i<dim;i++)
     	{	for(j=1;j<dim;j++)
     	  	{		 
     	        	for(k=0;k<j-1;k++)
+<<<<<<< HEAD
     	        	{	soma1 = soma1 + U[k][i]*L[i][k];	numop++;	}
     	        	
     	        L[i][j] = M[i][j] - soma1;
     	        
     	        numop++;
+=======
+    	        	{	soma1 = soma1 + U[i][k]*L[i][k];	}
+    	        L[i][j] = M[i][j] - soma1;
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
     	  	}
     	  	
     	  	for(j=i+1;j<dim-1;j++)
     	 	{     
     	      		for(k=0;k<i-1;i++)
+<<<<<<< HEAD
     	      		{	soma2 = soma2 + U[k][j]*L[i][k]; 	numop++;	} 
 	      	U[i][j] = (M[i][j] - soma2)/L[i][i];
 	      	numop++;
+=======
+    	      		{	soma2 = soma2 + U[k][j]*L[i][k]; 	} 
+	      	U[i][j] = (M[i][j] - soma2)/L[i][i];
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
 	      	}
    	}
 	
@@ -105,9 +133,12 @@ void decomposicaoLU(double **M, int dim)
 	imprime(L, dim);
 	printf ("\nA matriz U é:\n");
 	imprime(U, dim);
+<<<<<<< HEAD
 	
 	printf ("\nO número de operações (n) é: %d \n", numop);
 
+=======
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
 }
 
 int main(int argc, char *argv[])
@@ -120,6 +151,7 @@ int main(int argc, char *argv[])
 	i = fscanf(leitura, "%d", &dim);
 	M = malloc(dim*sizeof(double *));
         
+<<<<<<< HEAD
     ler(M,dim,leitura);
 	printf ("\nA matriz fornecida é:\n");
 	imprime(M, dim);
@@ -129,5 +161,16 @@ int main(int argc, char *argv[])
  	escalonamento( M, dim);
 	printf ("\nA matriz após o escalonamento é:\n");
 	imprime(M, dim);
+=======
+        ler(M,dim,leitura);
+	printf ("\nA matriz fornecida é:\n");
+	imprime(M, dim);
+
+ 	//escalonamento( M, dim);
+	//printf ("\nA matriz após o escalonamento é:\n");
+	//imprime(M, dim);
+
+	decomposicaoLU( M, dim);
+>>>>>>> 68a2d86799ce5819c5bc2b66af4480314850619b
 
 }
